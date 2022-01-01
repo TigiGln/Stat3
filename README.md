@@ -1,6 +1,6 @@
 ![Pyton 3.9.5](https://img.shields.io/badge/python-3.9.5-blue.svg)
 
-## M2 DLAD Projet de Stat3 Machine learning
+# M2 DLAD Projet de Stat3 Machine learning
 
 ## Analyse
 
