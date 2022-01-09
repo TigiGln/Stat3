@@ -12,4 +12,5 @@ analyze(df_data, df_label)# Launching the analysis with logistic regression
 
 Y = df_label.iloc[:,1]
 X = df_data.iloc[:,1:]
+
 neural_network(X, Y) # Launching the analysis with the neural network
