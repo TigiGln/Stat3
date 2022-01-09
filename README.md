@@ -37,10 +37,15 @@ conda install -c conda-forge scikit-learn
 conda install -c conda-forge keras tensorflow
 ```
 
+###
+```{}
+unzip data.zip
+```
+
 ## Launch projet
 ```{}
 python3 main.py
 ```
 
 
-![Screenshot](./outputs/Figure_1.png)
+![Screenshot](outputs/Figure_1.png)
