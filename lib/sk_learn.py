@@ -106,18 +106,18 @@ def learning_curve(x_train, y_train, x_test, y_test, fig, num_fig, title_graph, 
     graph = plt.plot(nb_samples, list_accuracy_training, label="Training")
     return graph
 
-def analyze():
+def analyze(df_data, df_label):
     """
     Run the different logistic regression analyses to see the differences according to the parameters 
 
     :parameters:
-        None
+        df_data: Dataframe
+            Data analysis
+        df_label: Dataframe
+            Label analysis
     :return:
         Display figure with all the graphics
     """
-    # transformation of CSV files into DataFrame allowing the processing
-    df_data = p.read_csv("../data/data.csv", header=1)
-    df_label = p.read_csv("../data/labels.csv", header=1)
     fig = plt.figure()
 
     #optimal conditions
