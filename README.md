@@ -37,10 +37,25 @@ conda install -c conda-forge scikit-learn
 conda install -c conda-forge keras tensorflow
 ```
 
-### Unzip data
+### data
+* Please download the data to be analyzed at the following address:
+https://archive.ics.uci.edu/ml/machine-learning-databases/00401/
+* Please click on:
+TCGA-PANCAN-HiSeq-801x20531.tar.gz
+* Unzip data
 ```{}
-unzip data.zip
+tar czvf TCGA-PANCAN-HiSeq-801x20531.tar.gz
 ```
+* clone the depot
+```{}
+git clone https://github.com/TigiGln/Stat3.git
+```
+* go to the clone directory
+```{}
+mkdir data
+```
+* copy the two unzipped csv files to this data directory
+
 
 ## Launch projet
 ```{}
