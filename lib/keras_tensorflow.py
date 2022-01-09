@@ -3,14 +3,23 @@ import numpy as np
 from keras.models import Model
 from keras.layers import Input, Dense
 from keras.utils import to_categorical
-import matplotlib.pyplot as plt
-from six import string_types
-from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from tensorflow.python.keras.backend import dtype
 
 def neural_network(X, Y):
+    """
+    Implementation of a simple neural network
+
+    :parameters:
+        X: Dataframe
+            analysis data
+        Y: Series
+            classification of data according to a phenotype 
+    :return:
+        model:object
+            model neural network
+    """
     # Basic Neural network
     Y_encoded = []
     for type in Y:
@@ -25,7 +34,7 @@ def neural_network(X, Y):
         elif type == "COAD":
             Y_encoded.append(4)
     Y_bis = to_categorical(Y_encoded, num_classes=5, dtype=np.int32)
-    x_train, x_test, y_train, y_test = train_test_split(X, Y_bis, test_size=0.33, random_state=42, stratify=Y)
+    x_train, x_test, y_train, y_test = train_test_split(X, Y_bis, test_size=0.30, random_state=42, stratify=Y)
     init = 'random_uniform'
     input_layer = Input(shape=(20531,))
     mid_layer = Dense(15, activation= 'relu', kernel_initializer=init)(input_layer)
@@ -35,8 +44,9 @@ def neural_network(X, Y):
     model = Model(input_layer, ouput_layer)
 
     model.compile(optimizer='sgd', loss="binary_crossentropy", metrics=['accuracy'])
-
     model.fit(x_train, y_train, batch_size=32, epochs=100, verbose=1)
+
+    print(model.evaluate(x_test, y_test, verbose=1))
 
     y_predict = model.predict(x_test)
 
@@ -48,6 +58,10 @@ def neural_network(X, Y):
 
     accuracy_test = accuracy_score(y_expect, prediction)
     print(accuracy_test)
+    
+    return model
+
+
 
 if __name__ == "__main__":
     # transformation des fichiers CSV en DataFrame permettant le traitement
